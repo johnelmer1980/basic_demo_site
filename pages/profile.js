@@ -8,13 +8,18 @@ export default function Profile() {
   useEffect(() => {
     if (!hostname || !orgId || !sessionId) return;
 
-    // Dynamically load the ThreatMetrix library
     const script = document.createElement("script");
     script.src = "/fp-clientlib-v5.js";
     script.onload = () => {
       if (typeof threatmetrix !== "undefined") {
+        // Call threatmetrix.profile after library loads
         threatmetrix.profile(hostname, orgId, sessionId);
+      } else {
+        console.error("threatmetrix not defined after fp-clientlib-v5.js loaded");
       }
+    };
+    script.onerror = () => {
+      console.error("Failed to load fp-clientlib-v5.js");
     };
     document.body.appendChild(script);
   }, [hostname, orgId, sessionId]);
