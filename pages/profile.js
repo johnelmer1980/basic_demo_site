@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -6,22 +5,22 @@ export default function Profile() {
   const router = useRouter();
   const { orgId, hostname, policy, sessionId } = router.query;
 
-useEffect(() => {
-  if (!orgId || !hostname || !sessionId) return;
-
-  const script = document.createElement("script");
-  script.src = "/fp-clientlib-v5.js";
-  script.onload = () => {
-    threatmetrix.profile(hostname, orgId, sessionId);
-  };
-  document.body.appendChild(script);
-}, [orgId, hostname, sessionId]);
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      {/* <Head>
+      <Head>
         <script type="text/javascript" src="/fp-clientlib-v5.js"></script>
-      </Head> */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                if (typeof threatmetrix !== 'undefined' && '${hostname}' && '${orgId}' && '${sessionId}') {
+                  threatmetrix.profile('${hostname}', '${orgId}', '${sessionId}');
+                }
+              });
+            `,
+          }}
+        />
+      </Head>
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">ThreatMetrix Profile</h1>
         <div className="space-y-2">
