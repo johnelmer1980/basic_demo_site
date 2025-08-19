@@ -1,3 +1,4 @@
+import MD5 from "crypto-js/md5";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -9,8 +10,18 @@ export default function Home() {
   const [sessionId, setSessionId] = useState("");
 
   useEffect(() => {
-    // Generate session_id on page load
-    const hash = btoa(Date.now().toString());
+    // Replicate PHP logic for session_id generation
+    // 1. Generate random number (like $random_number)
+    const random_number = Math.floor(Math.random() * 1000000000);
+    // 2. Generate random string of 7 uppercase letters (like $random_string)
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let random_string = "";
+    for (let i = 0; i < 7; i++) {
+      random_string += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    // 3. Concatenate and MD5 hash
+    const sessionString = `${random_number}${random_string}`;
+    const hash = MD5(sessionString).toString();
     setSessionId(hash);
   }, []);
 
