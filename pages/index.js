@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
-  const [orgId, setOrgId] = useState("");
-  const [hostname, setHostname] = useState("");
-  const [policy, setPolicy] = useState("");
+  const [orgId, setOrgId] = useState("ctvkbfxp");
+  const [hostname, setHostname] = useState("h.online-metrix.net");
+  const [policy, setPolicy] = useState("default");
   const [sessionId, setSessionId] = useState("");
 
   useEffect(() => {
