@@ -18,13 +18,19 @@ export default function Profile() {
   }, [orgId, hostname, sessionId]);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>ThreatMetrix Profile</h1>
-      <p><strong>Org ID:</strong> {orgId}</p>
-      <p><strong>Hostname:</strong> {hostname}</p>
-      <p><strong>Policy:</strong> {policy}</p>
-      <p><strong>Session ID:</strong> {sessionId}</p>
-      <p>The ThreatMetrix script has been executed.</p>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-6 text-center">ThreatMetrix Profile</h1>
+        <div className="space-y-2">
+          <p><span className="font-medium text-gray-700">Org ID:</span> {orgId}</p>
+          <p><span className="font-medium text-gray-700">Hostname:</span> {hostname}</p>
+          <p><span className="font-medium text-gray-700">Policy:</span> {policy}</p>
+          <p><span className="font-medium text-gray-700">Session ID:</span> {sessionId}</p>
+        </div>
+        <p className="mt-6 text-green-600 text-sm text-center">
+          ✅ The ThreatMetrix script has been executed.
+        </p>
+      </div>
     </div>
   );
 }
