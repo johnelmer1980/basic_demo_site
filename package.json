@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/johnelmer1980/basic_demo_site#readme",
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "next": "^15.4.7",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
