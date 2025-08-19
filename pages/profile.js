@@ -23,8 +23,8 @@ export default function Profile() {
       <Head>
         <script type="text/javascript" src="/fp-clientlib-v5.js"></script>
       </Head>
-      {/* <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-        <script
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+        {/* <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
