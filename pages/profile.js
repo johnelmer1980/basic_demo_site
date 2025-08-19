@@ -23,7 +23,7 @@ export default function Profile() {
       <Head>
         <script type="text/javascript" src="/fp-clientlib-v5.js"></script>
       </Head>
-      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+      {/* <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{
@@ -32,7 +32,7 @@ export default function Profile() {
               securesite.profile("${hostname}", "${orgId}", "${sessionId}");
             `,
           }}
-        ></script>
+        ></script> */}
         <h1 className="text-2xl font-bold mb-6 text-center">ThreatMetrix Profile</h1>
         <div className="space-y-2">
           <p><span className="font-medium text-gray-700">Org ID:</span> {orgId}</p>
